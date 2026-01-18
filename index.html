@@ -2,11 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Happy Birthday My Love </title>
 
 <style>
-   
+  /* 📱 Mobile Responsive Fixes */
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 28px;
+        margin-top: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .card {
+        width: 92%;
+        padding: 15px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    #cakeImg {
+        width: 140px;
+    }
+
+    #cakeVideo {
+        max-width: 95%;
+    }
+
+    .popup-content {
+        font-size: 16px;
+    }
+}
+html, body {
+    overflow-x: hidden;
+}
+ 
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
@@ -125,7 +163,7 @@ canvas{position:fixed;top:0;left:0;z-index:-1;}
 <div class="balloon" style="left:75%;animation-delay:7s"></div>
 <div class="balloon" style="left:85%;animation-delay:8s"></div>
 <div class="balloon" style="left:95%;animation-delay:9s"></div>
-<h1>🎂 Happy Birthday 🎂</h1>
+<h1>🎂 Happy Birthday My love🎂</h1>
 
 <div class="card">
     <h2 id="nameText">Dear My Favourite Person ❤️</h2>
@@ -163,7 +201,7 @@ canvas{position:fixed;top:0;left:0;z-index:-1;}
 
 /* 💖 NAME PERSONALIZATION FROM LINK */
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
+const name = params.get("Harshu");
 
 if(name){
     document.getElementById("nameText").innerText =
@@ -276,6 +314,7 @@ setInterval(createLowerEffect, 400);
 
 </body>
 </html>
+
 
 
 
