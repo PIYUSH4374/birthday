@@ -6,6 +6,25 @@
 <title>Happy Birthday ❤️</title>
 
 <style>
+    .heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    animation: floatUp 6s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
@@ -132,6 +151,24 @@ canvas{position:fixed;top:0;left:0;z-index:-1;}
 </div>
 
 <script>
+    function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+// Create hearts every 500ms
+setInterval(createHeart, 500);
+
 /* 💖 NAME PERSONALIZATION FROM LINK */
 const params = new URLSearchParams(window.location.search);
 const name = params.get("name");
@@ -224,3 +261,4 @@ window.onresize = () => {
 
 </body>
 </html>
+
