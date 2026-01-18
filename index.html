@@ -82,6 +82,26 @@ canvas{position:fixed;top:0;left:0;z-index:-1;}
     max-width:350px;
     border-radius:15px;
 }
+   .lower-effect {
+    position: fixed;
+    bottom: 0;
+    font-size: 22px;
+    animation: lowerFloat 6s linear forwards;
+    pointer-events: none;
+    z-index: 999;
+}
+
+@keyframes lowerFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(1.5);
+        opacity: 0;
+    }
+}
+
 </style>
 </head>
 
@@ -223,9 +243,33 @@ window.onresize = () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
+   function createLowerEffect() {
+    const effect = document.createElement("div");
+    effect.className = "lower-effect";
+
+    // Random heart or star
+    const icons = ["💖", "⭐", "✨", "💫"];
+    effect.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+
+    // Only appear in LOWER half of screen
+    effect.style.left = Math.random() * 100 + "vw";
+    effect.style.bottom = "10px";
+    effect.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+    document.body.appendChild(effect);
+
+    setTimeout(() => {
+        effect.remove();
+    }, 6000);
+}
+
+// Run continuously
+setInterval(createLowerEffect, 400);
+
 </script>
 
 </body>
 </html>
+
 
 
